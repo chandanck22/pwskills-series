@@ -13,5 +13,5 @@ int main()
     for(int i=1; i<=n; ++i){
         fact *= i;
     }
-    cout<<"factoria of: "<<fact<<endl;
+    cout<<"factorial of: "<<fact<<endl;
 }
