@@ -1,5 +1,5 @@
 /*
-Check the greates numbers in decimal format in two given binary numbers.
+Check the greater numbers in decimal format in two given binary numbers.
 
 Input:
 1001 & 0100

@@ -13,7 +13,7 @@ int main()
     if(x < 0)
         x *= (-1);
 
-    cout<<"Absolute value is: "<<x<<endl;   // 4   
+    cout<<"Absolute value is: "<<x<<endl;   // 4
 
 
     return 0;

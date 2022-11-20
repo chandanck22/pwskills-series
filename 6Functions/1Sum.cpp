@@ -1,5 +1,5 @@
 /*
-Write a function to print squares of the first 5 naural numbers.
+Write a function to print squares of the first 5 natural numbers.
 */
 
 #include <iostream>

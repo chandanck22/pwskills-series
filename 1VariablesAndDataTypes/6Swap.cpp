@@ -1,5 +1,5 @@
 /*
-Swap two number with th help of third variable;
+Swap two number with the help of third variable;
 */
 
 
