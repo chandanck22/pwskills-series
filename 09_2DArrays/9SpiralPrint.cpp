@@ -10,7 +10,7 @@ Output:
 7 6 5
 */
 
-
+// Segmented Sieve
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -47,6 +47,15 @@ vector<vector<int>> spiralMatrix(int n)
 	return ans;
 }
 
+void printVector(vector<vector<int>> v)
+{
+    for(int i=0; i<v.size(); i++){
+        for(int j=0; j<v.size(); j++){
+            cout<<v[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
 int main()
 {
 	int n;
@@ -55,10 +64,6 @@ int main()
 	vector<vector<int>> a(n, vector<int> (n, 0));
     a = spiralMatrix(n);
 
-	for(int i=0; i<n; i++){
-		for(int j=0; j<n; j++){
-			cout<<a[i][j]<<" ";
-		}
-        cout<<endl;
-	}
+    printVector(a);
+
 }

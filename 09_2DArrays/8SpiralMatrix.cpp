@@ -10,57 +10,86 @@ Output:
 1 2 3 4 5 6 7 8 9
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-vector<int> spiralMatrix(vector<vector<int>> & a)
-{
-	int n = a.size();
-	int m = a[0].size();
-	int left = 0, right = m-1, up = 0, down = n-1;
 
+vector<int> spiralMatrix(vector<vector<int>> &matrix )
+{
 	vector<int> ans;
 
-	while(ans.size() < n*m){
-		for(int j=left; j <= right && ans.size() < n*m; j++){
-			ans.push_back(a[up][j]);
-		}
-		for(int i=up+1; i <= down-1 && ans.size() < n*m; i++){
-			ans.push_back(a[i][right]);
-		}
-		for(int j=right; j >= left && ans.size() < n*m; j--){
-			ans.push_back(a[down][j]);
-		}
-		for(int i=down-1; i >= up+1 && ans.size() < n*m; i--){
-			ans.push_back(a[i][left]);
-		}
+	// no. of rows
+	int row = matrix.size();
+	int col = matrix[0].size();
 
-		left++;
-		right--;
-		up++;
-		down--;
+	int count = 0;
+	int total = row*col;
+
+	// index initialisation
+	int startingRow = 0;
+	int startingCol = 0;
+	int endingRow = row-1;
+	int endingCol = col-1;
+
+	while(count < total){
+
+		// print starting row
+		for(int index=startingCol; count<total && index<=endingCol; index++){
+			ans.push_back(matrix[startingRow][index]);
+			count++;
+		}
+		startingRow++;
+
+		// print ending column
+		for(int index=startingRow; count<total && index<=endingRow; index++){
+			ans.push_back(matrix[index][endingCol]);
+			count++;
+		}
+		endingCol--;
+
+		// print ending row
+		for(int index=endingCol; count<total && index>=startingCol; index--){
+			ans.push_back(matrix[endingRow][index]);
+			count++;
+		}
+		endingRow--;
+
+		// print starting column
+		for(int index=endingRow; count<total && index>=startingRow; index--){
+			ans.push_back(matrix[index][startingCol]);
+			count++;
+		}
+		startingCol++;
 	}
-
 	return ans;
 }
 
-int main()
+
+void printVector(vector<int> v)
 {
-	int n, m;
+	for(int i=0; i<v.size(); i++){
+		cout<<v[i]<<" ";
+	}
+	cout<<endl;
+}
+
+int main(){
+
+	int n,m;
 	cin>>n>>m;
 
-	vector<vector<int>> a(n, vector<int> (m, 0));
+	vector<vector<int>> arr(n, vector<int> (m, 0));
 
-	for(int i=0; i<n; i++){
-		for(int j=0; j<m; j++){
-			cin>>a[i][j];
+	// int n = arr.size();
+	for(int i=0;i<n;i++){
+		for(int j=0;j<m;j++){
+			cin>>arr[i][j];
 		}
 	}
 
-	vector<int> ans = spiralMatrix(a);
+	vector<int> ans = spiralMatrix(arr);
+	printVector(ans);
 
-	for(int i=0; i<ans.size(); i++){
-		cout<<ans[i]<<" ";
-	}
-	cout<<endl;
+	return 0;
 }

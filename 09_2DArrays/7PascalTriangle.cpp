@@ -20,20 +20,23 @@ vector<vector<int>> pascal(int n)
     return arr;
 }
 
-int main()
+void printVector(vector<vector<int>> v)
 {
-    int n;
-    cout<<"Enter no. of Rows: ";
-    cin>>n;
-    vector<vector<int>> ans;
-    ans = pascal(n);
-
-    for(int i=0; i<ans.size(); ++i){
-        for(int j=0; j<ans[i].size(); ++j){
-            cout<<ans[i][j]<<" ";
+    for(int i=0; i<v.size(); ++i){
+        for(int j=0; j<v[i].size(); ++j){
+            cout<<v[i][j]<<" ";
         }
         cout<<endl;
     }
+}
+int main()
+{
+    int n;
+    // cout<<"Enter no. of Rows: ";
+    cin>>n;
+    vector<vector<int>> ans = pascal(n);
+
+    printVector(ans);
 
     return 0;
 }

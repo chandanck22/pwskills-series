@@ -1,6 +1,7 @@
 /*
 Given an integer array arr, return an array ans such that ans[i] is equal to the product of
 all the elements of arr except arr[i].
+
 Input:
 arr=[1,3,5,7]
 Output:
